@@ -173,10 +173,18 @@ console.log(IconColored);
 
 //Devo aggiungere il colore nello stile delle icone, per farlo devo usare uno stile inline :'(
 var container = $(".icons");
+//richiamo la funzione che ho creato e spostato in cima per stampare le icone
 printIcon(container, IconColored);
-
-
 
 
 // Milestone 3
 // Creiamo una select con i tipi di icone e usiamola per filtrare le icone
+
+//aggiungo le voci di menu in base alle categorie
+const select = $("select");
+
+iconColor.forEach((item) => {
+  let option = `<option value="">${item.category}</option>`;
+  select.append(option);
+});
+
