@@ -1,6 +1,25 @@
+//funzioni
+
+function printIcon(target, items) {
+  target.html("");
+
+  items.forEach((item) => {
+    const { name, family, prefix, color } = item;
+    
+    var html = `
+    <div>
+      <i class="${family} ${prefix}${name}" style="color: ${color}"></i>
+      <div class="title">${name}</div>
+    </div>
+    `;
+
+    target.append(html);
+  });
+}
+
+
 // Milestone 1
 // Partendo dalla seguente struttura dati , mostriamo in pagina tutte le icone disponibili come da layout.
-
 const icons = [
   {
     name: 'apple-alt',
@@ -112,22 +131,6 @@ const icons = [
   },
 ];
 
-var container = $(".icons");
-
-icons.forEach((icon) => {
-  const { name, family, prefix } = icon;
- 
-  var html = `
-  <div>
-    <i class="${family} ${prefix}${name}"></i>
-    <div class="title">${name}</div>
-  </div>
-  `;
-
-  container.append(html);
-});
-
-
 // Milestone 2
 // Coloriamo le icone per tipo
 
@@ -166,10 +169,11 @@ const IconColored = icons.map((icon) => {
   return icon;
 });
 
-
 console.log(IconColored);
 
-
+//Devo aggiungere il colore nello stile delle icone, per farlo devo usare uno stile inline :'(
+var container = $(".icons");
+printIcon(container, IconColored);
 
 
 
